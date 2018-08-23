@@ -1,0 +1,31 @@
+.hide-me {
+	display: none;
+}
+
+.cart {
+	padding: 0;
+}
+
+.cart li {
+	display: flex;
+	margin: 0 auto 4px;
+	max-width: 400px;
+}
+
+.cart .price {
+	font-style: italic
+}
+
+.cart .name {
+	flex-grow: 1;
+}
+
+.cart button {
+	width: 6em;
+	margin-left: 1em;
+}
+
+#receipt {
+	border: 2px solid gray;
+	padding: 1em;
+}
