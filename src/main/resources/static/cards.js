@@ -27,21 +27,37 @@ function main(deckId) {
 	// is the deckId available to use.
 	
 	drawButton.addEventListener("click", function() {
-		
-//		var requestUrl = "https://deckofcardsapi.com/api/deck/" + deckId + "/draw/?count=1";
-		
-//		console.log(requestUrl);
-		
+						
 		request.open("GET", "https://deckofcardsapi.com/api/deck/" + deckId + "/draw/?count=1");
 		
 		request.onload = function () {
-			console.log("yo");
 			
 			var data = JSON.parse(request.responseText);
-			console.log("hello");
-			console.log(data.cards[0].value, data.cards[0].suit);
+			renderHTML(data);
 		}
 		request.send();
 		
 	});
+}
+
+function renderHTML(data){
+	for (var card of data.cards) {
+		var htmlString = "<p>"
+						 + toTitleCase(card.value)
+						 + " of " + toTitleCase(card.suit)
+						 + "</p><img src='" 
+						 + card.image
+						 + "'>";
+		container.insertAdjacentHTML("beforeend", htmlString);
+	}
+	
+}
+
+function toTitleCase(str) {
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
 }
