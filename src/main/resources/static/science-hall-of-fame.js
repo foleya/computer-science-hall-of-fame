@@ -24,7 +24,6 @@ btn.addEventListener("click", function() {
 
 	request.send();
 	
-	
 });
 
 // created to render the HTML to the page, can reuse this by making modifications 
@@ -38,6 +37,5 @@ function renderHTML(dataCompleteSortedByYear){
 						 + ")</p>";
 		swapiContainer.insertAdjacentHTML("beforeend", htmlString);
 	}
-	
 	
 }
