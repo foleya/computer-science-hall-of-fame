@@ -6,10 +6,20 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class AjaxLabController {
+	
+	@RequestMapping("/")
+	public ModelAndView home() {
+		return new ModelAndView("redirect:/science-hall-of-fame");
+	}
 
 	@RequestMapping("/science-hall-of-fame")
 	public ModelAndView starwarsPages() {
 		return new ModelAndView("science-hall-of-fame");
+	}
+	
+	@RequestMapping("/cards")
+	public ModelAndView cards() {
+		return new ModelAndView("cards");
 	}
 	
 }
