@@ -13,6 +13,7 @@
 		<div id="cards">
 		</div>
 		<button id="draw">Draw</button>
+		<button id="shuffle">Re-shuffle</button>
 	</main>
 	<script src="cards.js"></script>
 </body>

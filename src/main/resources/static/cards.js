@@ -9,6 +9,7 @@
 
 var container = document.getElementById("cards");
 var drawButton = document.getElementById("draw");
+var shuffleButton = document.getElementById("shuffle");
 
 var request = new XMLHttpRequest();
 // this will open the connection and allow us to get data
@@ -26,6 +27,7 @@ function main(deckId) {
 	// You must write all code inside this main function because only here
 	// is the deckId available to use.
 	
+	// Draw a card
 	drawButton.addEventListener("click", function() {
 						
 		request.open("GET", "https://deckofcardsapi.com/api/deck/" + deckId + "/draw/?count=1");
@@ -38,6 +40,20 @@ function main(deckId) {
 		request.send();
 		
 	});
+	
+	// Shuffle the deck
+	shuffleButton.addEventListener("click", function() {
+		request.open("GET", "https://deckofcardsapi.com/api/deck/" + deckId + "/shuffle/");
+		request.onload = function () {
+			clearCards();
+		}
+		request.send();
+	});
+	
+}
+
+function clearCards() {
+	container.innerHTML = "<p></p>";
 }
 
 function renderHTML(data){
